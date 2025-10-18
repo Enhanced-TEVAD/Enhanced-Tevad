@@ -1,0 +1,37 @@
+Training Phase:
+we provide the model with video-level labels indicating whether the video is "normal" or "abnormal." You don’t provide labels for individual snippets or frames.
+The model processes the video, splits it into snippets (smaller segments of the video), and extracts features for each snippet (both visual and text features).
+For each snippet, the model calculates a feature magnitude (using the L2 norm) that quantifies how distinct or unusual that snippet is compared to other snippets in the video.
+Abnormal snippets have higher feature magnitudes because they deviate from the normal patterns (e.g., unusual events like a crime, fall, or other anomalies).
+The model uses these feature magnitudes to identify and focus on abnormal snippets during training, without needing to explicitly label each snippet as normal or abnormal.
+Binary Snippet Classifier:
+
+The model uses the Top-K largest feature magnitudes (the most distinctive or abnormal snippets) to train a binary classifier. This classifier learns to distinguish between normal and abnormal snippets based on their feature magnitudes.
+During training, the model does not require explicit labels for each individual snippet. The focus is on identifying snippets with higher feature magnitudes (abnormal) based on the overall video-level label (normal or abnormal).
+Inference (Prediction Phase):
+
+When the trained model is used on a new video, it processes the video in the same way, splitting it into snippets, extracting features, and calculating feature magnitudes.
+It then uses the binary snippet classifier to classify the snippets as either normal or abnormal based on their feature magnitudes.
+Once the snippets are classified, the model propagates the snippet-level predictions to individual frames within the snippet to generate frame-level predictions.
+In summary, during training, the model:
+
+Focuses on abnormal snippets because they have higher feature magnitudes.
+Identifies the normal snippets by distinguishing them from the abnormal snippets based on their feature magnitudes, but does not require explicit labeling of normal snippets.
+The training process is guided by video-level labels (normal or abnormal), and the model learns to classify snippets based on the learned feature magnitudes.
+
+
+
+
+4. How This Fits into TEVAD?
+Captions are generated for video snippets.
+SimCSE converts captions into sentence embeddings.
+These embeddings are used to detect anomalies based on text features.
+Embeddings are fused with visual features for final anomaly classification.
+
+
+
+
+
+
+
+
