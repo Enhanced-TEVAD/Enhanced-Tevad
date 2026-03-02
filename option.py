@@ -8,8 +8,8 @@ parser.add_argument('--modality', default='RGB', help='the type of the input, RG
 parser.add_argument('--test-rgb-list', default=None, help='list of test rgb features ')
 parser.add_argument('--gt', default=None, help='file of ground truth ')
 parser.add_argument('--gpus', default=1, type=int, choices=[0], help='gpus')
-parser.add_argument('--lr', type=str, default='[0.001]*15000', help='learning rates for steps(list form)')
-parser.add_argument('--batch-size', type=int, default=32, help='number of instances in a batch of data (default: 16)')
+parser.add_argument('--lr', type=str, default='[0.005]*15000', help='learning rates for steps(list form)')  # PAPER: 0.005
+parser.add_argument('--batch-size', type=int, default=64, help='number of instances in a batch of data (default: 64)')  # PAPER: 64
 parser.add_argument('--workers', default=4, help='number of workers in dataloader')
 parser.add_argument('--model-name', default='rtfm', help='name to save model')
 parser.add_argument('--pretrained-ckpt', default=None, help='ckpt for pretrained model')
@@ -26,6 +26,9 @@ parser.add_argument('--abnormal_weight', type=float, default=1, help='weight for
 parser.add_argument('--aggregate_text', action='store_true', default=False, help='whether to aggregate text features')
 parser.add_argument('--extra_loss', action='store_true', default=False, help='whether to use extra loss')
 parser.add_argument('--save_test_results', action='store_true', default=False, help='whether to save test results')
-parser.add_argument('--alpha', type=float, default=0.0001, help='weight for RTFM loss')
+parser.add_argument('--alpha', type=float, default=0.0005, help='weight for RTFM loss')  # PAPER: 0.0005
 parser.add_argument('--emb_folder', type=str, default='sent_emb_n', help='folder for text embeddings, used to differenciate different swinbert pretrained models')
 parser.add_argument('--emb_dim', type=int, default=768, help='dimension of text embeddings')
+
+# Add weight decay parameter for paper compliance
+parser.add_argument('--weight-decay', type=float, default=0.0005, help='weight decay (default: 0.0005)')  # PAPER: 0.0005
