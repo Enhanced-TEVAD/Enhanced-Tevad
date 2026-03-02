@@ -69,7 +69,7 @@ Enhanced TEVAD is an improved implementation of the original TEVAD (Text-Enhance
 
 - Python 3.8+
 - CUDA 11.0+ (for GPU acceleration)
-- 8GB+ RAM recommended
+- 8GB+ RAM recommended >= 24GB
 
 ### Step 1: Clone the Repository
 
@@ -341,4 +341,5 @@ The enhanced training uses multiple loss components:
 - **RTFM**: [GitHub Repository](https://github.com/tianyu0207/RTFM/)
 - **I3D Feature Extraction**: [GitHub Repository](https://github.com/GowthamGottimukkala/I3D_Feature_Extraction_resnet)
 - **SwinBERT**: [GitHub Repository](https://github.com/coranholmes/SwinBERT)
+
 
