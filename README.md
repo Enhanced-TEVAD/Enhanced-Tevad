@@ -59,10 +59,9 @@ Enhanced TEVAD is an improved implementation of the original TEVAD (Text-Enhance
 
 | Dataset      | Original TEVAD | Enhanced TEVAD | Epochs Used | Improvement |
 | ------------ | -------------- | -------------- | ----------- | ----------- |
-| UCSD-Ped2    | 98.6% AUC      | **99.22% AUC** | 11× fewer   | +0.62 AUC   |
-| UCF-Crime    | Baseline       | **Enhanced**   | Reduced     | Improved    |
-| ShanghaiTech | Baseline       | **Enhanced**   | Reduced     | Improved    |
-| XD-Violence  | Baseline       | **Enhanced**   | Reduced     | Improved    |
+| UCSD-Ped2    | 98.6%          | **99.22% AUC** | Reduced     | +0.62 AUC   |
+| UCF-Crime    | 84.90%         | **85.34%**     | Reduced     | +0.44       |
+| ShanghaiTech | Baseline       | Baseline       | Reduced     | Baseline    |
 
 ## 🛠 Installation
 
@@ -342,3 +341,4 @@ The enhanced training uses multiple loss components:
 - **RTFM**: [GitHub Repository](https://github.com/tianyu0207/RTFM/)
 - **I3D Feature Extraction**: [GitHub Repository](https://github.com/GowthamGottimukkala/I3D_Feature_Extraction_resnet)
 - **SwinBERT**: [GitHub Repository](https://github.com/coranholmes/SwinBERT)
+
